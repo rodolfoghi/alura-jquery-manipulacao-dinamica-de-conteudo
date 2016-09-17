@@ -1,3 +1,22 @@
+var umaPropaganda = function() {
+    var propagandas = [
+        "O que acha de comprar uma motocicleta?",
+        "O que acha de comprar uma lancha?",
+        "O que acha de comprar uma bicicleta?",
+        "O que acha de comprar um carro?",
+    ];
+
+    var posicao = Math.floor(propagandas.length * Math.random());
+
+    var texto = propagandas[posicao];
+    var tr = $("<tr>").append($("<td>"));
+    tr.addClass("propaganda");
+    tr.find("td")
+        .attr("colspan", 6)
+        .text(texto);
+    return tr;
+}
+
 var atualizaDados = function () {
     var carrinhos = $('.carrinho');
 
@@ -40,6 +59,13 @@ var aposCarregamento = function () {
     atualizaDados();
     $('.remove-item').click(removeItem);
     $('.undo').click(undo);
+
+    $(".carrinho").each(function(){
+        var carrinho = $(this);
+        carrinho.find("tr:nth-child(3n)").each(function(){
+            umaPropaganda().insertAfter($(this));
+        });
+    });
 };
 
 $(aposCarregamento);
