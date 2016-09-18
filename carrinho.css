@@ -47,6 +47,10 @@ td {
 	font-style: italic;
 }
 
+.hovering {
+	background: #ccc;
+}
+
 .remove-item {	
 	background: #F30;
 	border-radius: 2px;

@@ -55,6 +55,14 @@ var undo = function () {
     atualizaDados();
 };
 
+var daDestaque = function(){
+    $(this).addClass("hovering");
+}
+
+var tiraDestaque = function(){
+    $(this).removeClass("hovering");
+}
+
 var aposCarregamento = function () {
     atualizaDados();
     $('.remove-item').click(removeItem);
@@ -66,6 +74,8 @@ var aposCarregamento = function () {
             umaPropaganda().insertAfter($(this));
         });
     });
+
+    $(".carrinho tbody tr").hover(daDestaque, tiraDestaque);
 };
 
 $(aposCarregamento);
